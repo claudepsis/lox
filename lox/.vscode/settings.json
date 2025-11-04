@@ -1,0 +1,11 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.test.config": {
+        "name": "test",
+        "workingDirectory": "${workspaceFolder}"
+    },
+    "java.test.defaultConfig": "test",
+    "maven.terminal.useJavaHome": true,
+    "maven.executable.path": "mvn"
+}
