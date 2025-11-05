@@ -30,15 +30,31 @@ public class GenerateAst {
             writer.println("import java.util.List;");
             writer.println();
             writer.println("abstract class "+baseName+"{");
+            defineVisitor(writer,baseName,types);
             for(String type:types){
                 //trim语法用于去除空白字符
                 String className=type.split(":")[0].trim();
                 String filed=type.split(":")[1].trim();
                 defineType(writer, baseName, className, filed);
             }
+            writer.println();
+            writer.println("\tabstract <R> R accept(Visitor<R> visitor);");
             writer.println("}");
         }
     }
+
+    private  static  void defineVisitor(PrintWriter writer,String baseName,List<String> types){
+        writer.println("\tinterface Visitor<R> {");
+        
+        for(String type:types){
+            String typeName=type.split(":")[0].trim();
+            writer.println("\t\tR visit"+typeName+baseName+"("+typeName+" "+baseName.toLowerCase()+");");   
+        }
+        writer.println("\t}");
+
+
+    }
+
     private static void defineType(PrintWriter writer,String baseName,String className,String fieldList){
         writer.println("\tstatic class "+className+" extends "+baseName+" {");
         writer.println("\t\t"+className+"("+fieldList+") {");
@@ -47,6 +63,12 @@ public class GenerateAst {
             String name=field.split(" ")[1];
             writer.println("\t\t\tthis."+name+" = "+name+";");
         }
+        writer.println("\t\t}");
+        writer.println("");
+        writer.println("\t\t@Override");
+        writer.println("\t\t<R> R accept(Visitor<R> visitor) {");
+        writer.println(" \t\t\treturn visitor.visit" +
+            className + baseName + "(this);");
         writer.println("\t\t}");
         writer.println("");
         for(String field:fields){
