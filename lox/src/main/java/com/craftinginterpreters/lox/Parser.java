@@ -4,6 +4,8 @@ import java.util.List;
 
 import static com.craftinginterpreters.lox.TokenType.BANG;
 import static com.craftinginterpreters.lox.TokenType.BANG_EQUAL;
+import static com.craftinginterpreters.lox.TokenType.COLON;
+import static com.craftinginterpreters.lox.TokenType.COMMA;
 import static com.craftinginterpreters.lox.TokenType.EOF;
 import static com.craftinginterpreters.lox.TokenType.EQUAL_EQUAL;
 import static com.craftinginterpreters.lox.TokenType.FALSE;
@@ -16,6 +18,7 @@ import static com.craftinginterpreters.lox.TokenType.MINUS;
 import static com.craftinginterpreters.lox.TokenType.NIL;
 import static com.craftinginterpreters.lox.TokenType.NUMBER;
 import static com.craftinginterpreters.lox.TokenType.PLUS;
+import static com.craftinginterpreters.lox.TokenType.QUESTION_MARK;
 import static com.craftinginterpreters.lox.TokenType.RIGHT_PAREN;
 import static com.craftinginterpreters.lox.TokenType.SEMICOLON;
 import static com.craftinginterpreters.lox.TokenType.SLASH;
@@ -36,14 +39,34 @@ public class Parser {
 
     Expr parse(){
         try {
-            return expreession();
+            return expression();
         } catch (ParseError error) {
             return null;
         }
     }
     
-    private Expr expreession() {
-        return equality();
+    private Expr expression() {
+        return comma();
+    }
+
+    private Expr comma(){
+        Expr expr=ternary();
+        while(match(COMMA)){
+            Token operator=previous();
+            expr=ternary();
+        }
+        return expr;
+    }
+    
+    private Expr ternary(){
+        Expr condition=equality();
+        if(match(QUESTION_MARK)) {
+            Expr left = expression();
+            consume(COLON,"Expect ':' after then branch");
+            Expr right=ternary();
+            condition=new Expr.Ternary(condition, left, right);
+        }
+        return condition;
     }
 
     private Expr equality() {
@@ -89,7 +112,7 @@ public class Parser {
     private Expr unary() {
         if (match(BANG, MINUS)) {
             Token operator = previous();
-            Expr right = primary();
+            Expr right = unary();
             return new Expr.Unary(operator, right);
         }
         return primary();
@@ -109,8 +132,8 @@ public class Parser {
             return new Expr.Literal(previous().literal);
         }
         if (match(LEFT_PAREN)) {
-            Expr expr = expreession();
-            consume(RIGHT_PAREN, "Expect '(' after expression.");
+            Expr expr = expression();
+            consume(RIGHT_PAREN, "Expect ')' after expression.");
             return new Expr.Grouping(expr);
         }
         throw  error(peek(),"Expect expression.");

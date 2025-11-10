@@ -7,6 +7,7 @@ import java.util.Map;
 
 import static com.craftinginterpreters.lox.TokenType.BANG;
 import static com.craftinginterpreters.lox.TokenType.BANG_EQUAL;
+import static com.craftinginterpreters.lox.TokenType.COLON;
 import static com.craftinginterpreters.lox.TokenType.COMMA;
 import static com.craftinginterpreters.lox.TokenType.DOT;
 import static com.craftinginterpreters.lox.TokenType.EOF;
@@ -22,6 +23,7 @@ import static com.craftinginterpreters.lox.TokenType.LESS_EQUAL;
 import static com.craftinginterpreters.lox.TokenType.MINUS;
 import static com.craftinginterpreters.lox.TokenType.NUMBER;
 import static com.craftinginterpreters.lox.TokenType.PLUS;
+import static com.craftinginterpreters.lox.TokenType.QUESTION_MARK;
 import static com.craftinginterpreters.lox.TokenType.RIGHT_BRACE;
 import static com.craftinginterpreters.lox.TokenType.RIGHT_PAREN;
 import static com.craftinginterpreters.lox.TokenType.SEMICOLON;
@@ -96,6 +98,10 @@ class Scanner {
                 addToken(SEMICOLON);
             case '*' ->
                 addToken(STAR);
+            case ':'->
+                addToken(COLON);
+            case '?'->
+                addToken(QUESTION_MARK);
             //Single or Double
             case '!' ->
                 addToken(match('=') ? BANG_EQUAL : BANG);

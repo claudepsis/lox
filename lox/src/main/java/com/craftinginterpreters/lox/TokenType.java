@@ -3,7 +3,7 @@ package com.craftinginterpreters.lox;
 enum TokenType {
   // 单字符 tokens
   LEFT_PAREN, RIGHT_PAREN, LEFT_BRACE, RIGHT_BRACE,
-  COMMA, DOT, MINUS, PLUS, SEMICOLON, SLASH, STAR,
+  COMMA, DOT, MINUS, PLUS, SEMICOLON, SLASH, STAR,COLON,QUESTION_MARK,
 
   // 单或双字符 tokens
   BANG, BANG_EQUAL,

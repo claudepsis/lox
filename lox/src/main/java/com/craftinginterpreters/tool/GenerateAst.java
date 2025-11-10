@@ -19,7 +19,8 @@ public class GenerateAst {
         "Binary   : Expr left,Token operator,Expr right",
         "Grouping : Expr expression",
         "Literal  : Object value",
-        "Unary    : Token operator,Expr right"));
+        "Unary    : Token operator,Expr right",
+        "Ternary   : Expr condition,Expr left,Expr right"));
     }  
 
     public static void defineAst(String ouputDir,String baseName,List<String> types) throws IOException{

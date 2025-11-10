@@ -13,6 +13,11 @@ public class AstPrinter implements Expr.Visitor<String> {
     }
 
     @Override
+    public String visitTernaryExpr(Expr.Ternary expr){
+        return parenthesize("Ternary", expr.condition,expr.left,expr.right);
+    }
+
+    @Override
     public  String visitGroupingExpr(Expr.Grouping expr){
         return parenthesize("group",expr.expression);
     }
