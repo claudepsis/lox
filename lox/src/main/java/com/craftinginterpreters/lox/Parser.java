@@ -53,7 +53,7 @@ public class Parser {
         Expr expr=ternary();
         while(match(COMMA)){
             Token operator=previous();
-            expr=ternary();
+            expr =new Expr.Comma(expr,operator,ternary());
         }
         return expr;
     }

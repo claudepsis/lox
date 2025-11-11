@@ -48,7 +48,8 @@ public class Lox {
     Parser parser=new Parser(tokens);
     Expr expression =parser.parse();
     if(hadError) return;
-    System.err.println(new AstPrinter().print(expression));
+    System.out.println(new Interpreter().evaluate(expression));
+    // System.err.println(new Interpreter.evaluate(expression));
     // 打印 tokens
     // for (Token token : tokens) {
     //   System.out.println(token);

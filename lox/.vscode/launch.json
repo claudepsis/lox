@@ -37,7 +37,7 @@
             "request": "launch",
             "mainClass": "com.craftinginterpreters.tool.GenerateAst",
             "projectName": "lox",
-            "args": "/home/sqf/csdiy/lox/lox/src/main/java/com/craftinginterpreters/lox"
+            "args": "E:/sqf/compiler/lox/src/main/java/com/craftinginterpreters/lox",
         }
     ]
 }

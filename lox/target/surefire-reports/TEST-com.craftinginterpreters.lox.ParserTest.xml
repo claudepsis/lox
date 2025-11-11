@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.craftinginterpreters.lox.ParserTest" time="0.049" tests="28" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.class.path" value="E:\sqf\compiler\lox\target\test-classes;E:\sqf\compiler\lox\target\classes;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.3\junit-jupiter-5.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.3\junit-jupiter-params-5.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.3\junit-jupiter-engine-5.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
+    <property name="sun.java.command" value="C:\Users\a&apos;su&apos;s\AppData\Local\Temp\surefire6043645902621353785\surefirebooter-20251110151501884_3.jar C:\Users\a&apos;su&apos;s\AppData\Local\Temp\surefire6043645902621353785 2025-11-10T15-15-01_792-jvmRun1 surefire-20251110151501884_1tmp surefire_0-20251110151501884_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="com.craftinginterpreters.lox.ParserTest"/>
+    <property name="surefire.test.class.path" value="E:\sqf\compiler\lox\target\test-classes;E:\sqf\compiler\lox\target\classes;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.3\junit-jupiter-5.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.3\junit-jupiter-params-5.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.3\junit-jupiter-engine-5.9.3.jar;C:\Users\a&apos;su&apos;s\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\a&apos;su&apos;s"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-07-16"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="E:\sqf\compiler\lox"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\a&apos;su&apos;s\AppData\Local\Temp\surefire6043645902621353785\surefirebooter-20251110151501884_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.12+8-LTS-286"/>
+    <property name="user.name" value="a&apos;su&apos;s"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="maven.ext.class.path" value="C:\Users\a&apos;su&apos;&apos;&apos;s\.vscode\extensions\oracle.oracle-java-24.1.2\nbcode\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="localRepository" value="C:\Users\a&apos;su&apos;s\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\a&apos;su&apos;s\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.12"/>
+    <property name="user.dir" value="E:\sqf\compiler\lox"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-17.0.16.8-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python313\Scripts\;C:\Python313\;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\ZeroTier\One\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Redis\;C:\Program Files\Pandoc\;C:\Users\a&apos;su&apos;s\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;C:\Users\a&apos;su&apos;s\AppData\Roaming\npm;D:\apache-maven-3.9.11\bin;D:\mysql-5.7.25-winx64\bin;D:\nginx-1.28.0;C:\Users\a&apos;su&apos;s\Desktop\platform-tools;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.12+8-LTS-286"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testParseError_MissingRightOperand" classname="com.craftinginterpreters.lox.ParserTest" time="0.017">
+    <system-out><![CDATA[鉁� Test parse error - Missing right operand - PASSED
+]]></system-out>
+    <system-err><![CDATA[[line 1] Errorat end: Expect expression.
+]]></system-err>
+  </testcase>
+  <testcase name="testParseBinary_Comparison" classname="com.craftinginterpreters.lox.ParserTest" time="0.001">
+    <system-out><![CDATA[鉁� Test parse binary - Comparison - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseComplex_WithGroupingAndUnary" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse complex - With grouping and unary - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseComma_Multiple" classname="com.craftinginterpreters.lox.ParserTest" time="0.002">
+    <system-out><![CDATA[鉁� Test parse comma - Multiple - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseBinary_Division" classname="com.craftinginterpreters.lox.ParserTest" time="0.001">
+    <system-out><![CDATA[鉁� Test parse binary - Division - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseBinary_Equality" classname="com.craftinginterpreters.lox.ParserTest" time="0.001">
+    <system-out><![CDATA[鉁� Test parse binary - Equality - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseLiteral_Number" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse literal - Number - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testOperatorPrecedence_ParenthesesOverride" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test operator precedence - Parentheses override - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseComplex_MixedOperators" classname="com.craftinginterpreters.lox.ParserTest" time="0.001">
+    <system-out><![CDATA[鉁� Test parse complex - Mixed operators - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseLiteral_String" classname="com.craftinginterpreters.lox.ParserTest" time="0.001">
+    <system-out><![CDATA[鉁� Test parse literal - String - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseBinary_Multiplication" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse binary - Multiplication - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseAndPrint_SimpleExpression" classname="com.craftinginterpreters.lox.ParserTest" time="0.001">
+    <system-out><![CDATA[鉁� Test parse and print - Simple expression - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseLiteral_Nil" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse literal - Nil - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseAndPrint_ComplexExpression" classname="com.craftinginterpreters.lox.ParserTest" time="0.002">
+    <system-out><![CDATA[鉁� Test parse and print - Complex expression - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseComma_Simple" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse comma - Simple - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseGrouping_Nested" classname="com.craftinginterpreters.lox.ParserTest" time="0.001">
+    <system-out><![CDATA[鉁� Test parse grouping - Nested - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseGrouping_Simple" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse grouping - Simple - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseUnary_Negation" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse unary - Negation - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseUnary_LogicalNot" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse unary - Logical NOT - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseUnary_MultipleNegations" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse unary - Multiple negations - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseTernary_Nested" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse ternary - Nested - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseLiteral_False" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse literal - False - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseError_UnmatchedParenthesis" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse error - Unmatched parenthesis - PASSED
+]]></system-out>
+    <system-err><![CDATA[[line 1] Errorat end: Expect ')' after expression.
+]]></system-err>
+  </testcase>
+  <testcase name="testParseTernary_Simple" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse ternary - Simple - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testOperatorPrecedence_UnaryBeforeMultiplication" classname="com.craftinginterpreters.lox.ParserTest" time="0.001">
+    <system-out><![CDATA[鉁� Test operator precedence - Unary before multiplication - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testOperatorPrecedence_MultiplicationBeforeAddition" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test operator precedence - Multiplication before addition - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseLiteral_True" classname="com.craftinginterpreters.lox.ParserTest" time="0">
+    <system-out><![CDATA[鉁� Test parse literal - True - PASSED
+]]></system-out>
+  </testcase>
+  <testcase name="testParseBinary_Addition" classname="com.craftinginterpreters.lox.ParserTest" time="0.001">
+    <system-out><![CDATA[鉁� Test parse binary - Addition - PASSED
+]]></system-out>
+  </testcase>
+</testsuite>
