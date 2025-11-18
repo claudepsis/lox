@@ -1,16 +1,21 @@
 package com.craftinginterpreters.lox;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.print.DocFlavor;
 
 import static com.craftinginterpreters.lox.TokenType.BANG;
 import static com.craftinginterpreters.lox.TokenType.BANG_EQUAL;
 import static com.craftinginterpreters.lox.TokenType.COLON;
 import static com.craftinginterpreters.lox.TokenType.COMMA;
 import static com.craftinginterpreters.lox.TokenType.EOF;
+import static com.craftinginterpreters.lox.TokenType.EQUAL;
 import static com.craftinginterpreters.lox.TokenType.EQUAL_EQUAL;
 import static com.craftinginterpreters.lox.TokenType.FALSE;
 import static com.craftinginterpreters.lox.TokenType.GREATER;
 import static com.craftinginterpreters.lox.TokenType.GREATER_EQUAL;
+import static com.craftinginterpreters.lox.TokenType.IDENTIFIER;
 import static com.craftinginterpreters.lox.TokenType.LEFT_PAREN;
 import static com.craftinginterpreters.lox.TokenType.LESS;
 import static com.craftinginterpreters.lox.TokenType.LESS_EQUAL;
@@ -18,6 +23,7 @@ import static com.craftinginterpreters.lox.TokenType.MINUS;
 import static com.craftinginterpreters.lox.TokenType.NIL;
 import static com.craftinginterpreters.lox.TokenType.NUMBER;
 import static com.craftinginterpreters.lox.TokenType.PLUS;
+import static com.craftinginterpreters.lox.TokenType.PRINT;
 import static com.craftinginterpreters.lox.TokenType.QUESTION_MARK;
 import static com.craftinginterpreters.lox.TokenType.RIGHT_PAREN;
 import static com.craftinginterpreters.lox.TokenType.SEMICOLON;
@@ -37,12 +43,50 @@ public class Parser {
         this.tokens = tokens;
     }
 
-    Expr parse(){
+    List<Stmt> parse(){
+        List<Stmt> statements=new ArrayList<>();
+        while(!isAtEnd()){
+            statements.add(declaration());
+        }
+        return statements;
+    }
+
+    private Stmt varDeclaration(){
+        Token name=consume(IDENTIFIER,"Expect variable name.");
+        Expr initializer=null;
+        if(match(EQUAL)){
+            initializer=expression();
+        }
+        consume(SEMICOLON,"Expect ';' after variable declaration.");
+        return new Stmt.Var(name,initializer);
+    }
+
+
+    private  Stmt declaration(){
         try {
-            return expression();
+            if(match(VAR)) return varDeclaration();
+            return statement();
         } catch (ParseError error) {
+            synchronize();
             return null;
         }
+    }
+
+    private Stmt statement(){
+        if(match(PRINT)) return printStatement();
+        else return exprStatement();
+    }
+
+    private Stmt printStatement(){
+        Expr expr=expression();
+        consume(SEMICOLON,"Expect ; after vaule");
+        return new Stmt.Print(expr);
+    }
+
+    private Stmt exprStatement(){
+        Expr expr=expression();
+        consume(SEMICOLON,"Expect ; after vaule");
+        return new Stmt.Expression(expr);
     }
     
     private Expr expression() {
@@ -135,6 +179,9 @@ public class Parser {
             Expr expr = expression();
             consume(RIGHT_PAREN, "Expect ')' after expression.");
             return new Expr.Grouping(expr);
+        }
+        if(match(IDENTIFIER)){
+            return new Expr.Variable(previous()); 
         }
         throw  error(peek(),"Expect expression.");
     }
